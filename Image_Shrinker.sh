@@ -125,15 +125,15 @@ ls -l $IMAGEFILE
 echo " "
 echo "Figuring out some specifics"
 
-BLOCK_COUNT=$(tune2fs -l /dev/loop0 | grep "^Block count" | cut -d ":" -f 2 | tr -d ' ')
+BLOCK_COUNT=$(tune2fs -l ${LOOP_DEV} | grep "^Block count" | cut -d ":" -f 2 | tr -d ' ')
 printf "Block count "
 echo $BLOCK_COUNT
 
-BLOCK_SIZE=$(tune2fs -l /dev/loop0 | grep "^Block size" | cut -d ":" -f 2 | tr -d ' ')
+BLOCK_SIZE=$(tune2fs -l ${LOOP_DEV} | grep "^Block size" | cut -d ":" -f 2 | tr -d ' ')
 printf "Block size "
 echo $BLOCK_SIZE
 
-FREE_BLOCKS=$(tune2fs -l /dev/loop0 | grep "^Free blocks" | cut -d ":" -f 2 | tr -d ' ')
+FREE_BLOCKS=$(tune2fs -l ${LOOP_DEV} | grep "^Free blocks" | cut -d ":" -f 2 | tr -d ' ')
 printf "Free blocks "
 echo $FREE_BLOCKS
 
